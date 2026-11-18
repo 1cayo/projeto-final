@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Quadro de Distribuição de Atividades Scrum & Kanban - Grão & Prosa Café (Next.js + Back4App)">
+  <title>Quadro Scrum & Kanban | Grão & Prosa Café</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS Principal -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       Barra Superior de Navegação
+       ========================================================================== -->
+  <header class="header-nav">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-icon">
+          <!-- Ícone de Café Minimalista -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
+            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+            <line x1="6" y1="2" x2="6" y2="4"></line>
+            <line x1="10" y1="2" x2="10" y2="4"></line>
+            <line x1="14" y1="2" x2="14" y2="4"></line>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>Projeto cafeteria</h1>
+          <span>Scrum & Kanban Hub · Next.js + Back4App</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#visao-geral" class="nav-link">Visão Geral</a></li>
+          <li><a href="#equipe" class="nav-link">Equipe</a></li>
+          <li><a href="#kanban" class="nav-link">Quadro Sprints</a></li>
+          <li><a href="#dependencias" class="nav-link">Dependências</a></li>
+          <li><a href="#regras" class="nav-link">Regras</a></li>
+          <li><a href="#checklist" class="nav-link">Checklist</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-status-badge">
+        <span class="pulse-dot"></span>
+        <span>Prazo: 29/11 (Margem 03/12)</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       Hero Section / Visão Geral & Timeline de Prazos
+       ========================================================================== -->
+  <main>
+    <section id="visao-geral" class="hero-section">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-top">
+            <div class="hero-title-group">
+              <span class="tag-badge primary">Plano de Projeto Ágil</span>
+              <h2>Distribuição de Atividades & Gestão de Sprints</h2>
+              <p>Planejamento estratégico, distribuição de carga balanceada (15 pts/integrante) e fluxo contínuo de
+                entrega.</p>
+            </div>
+
+            <div class="tag-badge"
+              style="background: var(--bg-main); border: 1px solid var(--border-light); font-size: 0.8125rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>Hoje: 18/11 · Entrega: 29/11 · Apresentação: 30/11 ou 03/12</span>
+            </div>
+          </div>
+
+          <!-- Timeline Visual dos Prazos -->
+          <div class="deadline-timeline">
+            <div class="timeline-header">
+              <div class="timeline-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span>Linha do Tempo do Projeto (Meta de Entrega: 29/11)</span>
+              </div>
+              <span style="font-size: 0.8125rem; font-weight: 700; color: var(--accent-coffee);">
+                Status: Início da Sprint 0
+              </span>
+            </div>
+
+            <div class="timeline-bar-track">
+              <div class="timeline-bar-fill"></div>
+            </div>
+
+            <div class="timeline-nodes">
+              <!-- Marco 1 -->
+              <div class="timeline-node active">
+                <div class="node-date">
+                  <span>18/11 - Hoje</span>
+                  <span style="color: #2D6335; font-weight: 800;">● Atual</span>
+                </div>
+                <div class="node-title">Kickoff & Sprint 0</div>
+                <div class="node-desc">Setup do Next.js, Back4App, Tailwind e definição dos contratos.</div>
+              </div>
+
+              <!-- Marco 2 -->
+              <div class="timeline-node">
+                <div class="node-date">
+                  <span>20/11 a 26/11</span>
+                  <span>Sprints 1 e 2</span>
+                </div>
+                <div class="node-title">Backend & Telas</div>
+                <div class="node-desc">ACLs, rotas, hooks TanStack, CRUDs e integração com Zustand.</div>
+              </div>
+
+              <!-- Marco 3 -->
+              <div class="timeline-node target">
+                <div class="node-date">
+                  <span>27/11 a 29/11</span>
+                  <span style="color: var(--accent-rust); font-weight: 800;">★ Meta Final</span>
+                </div>
+                <div class="node-title">Pronto para Entrega</div>
+                <div class="node-desc">Deploy no Vercel, vídeo de 3 min no YouTube e montagem do PDF.</div>
+              </div>
+
+              <!-- Marco 4 -->
+              <div class="timeline-node buffer">
+                <div class="node-date">
+                  <span>30/11 ou 03/12</span>
+                  <span>Margem / Banca</span>
+                </div>
+                <div class="node-title">Apresentação Oficial</div>
+                <div class="node-desc">Dia 03/12 como margem de segurança. Todos apresentam via Teams.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Métricas Chave -->
+          <div class="stats-grid">
+            <div class="stat-box">
+              <span class="stat-box-label">Integrantes</span>
+              <span class="stat-box-val">5 Pessoas</span>
+              <span class="stat-box-sub">1 tela/entidade por membro</span>
+            </div>
+
+            <div class="stat-box">
+              <span class="stat-box-label">Carga Balanceada</span>
+              <span class="stat-box-val">15 pts / pessoa</span>
+              <span class="stat-box-sub">Total de 75 pontos de esforço</span>
+            </div>
+
+            <div class="stat-box">
+              <span class="stat-box-label">Sprints Mapeadas</span>
+              <span class="stat-box-val">4 Ciclos</span>
+              <span class="stat-box-sub">Sprint 0, 1, 2 e 3</span>
+            </div>
+
+            <div class="stat-box">
+              <span class="stat-box-label">Total de Tarefas</span>
+              <span class="stat-box-val">31 Tarefas</span>
+              <span class="stat-box-sub">T01 até T31 estruturadas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Arquitetura & Stack Tecnológica
+         ========================================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h3>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+              Stack & Arquitetura do Sistema
+            </h3>
+            <p>Arquitetura moderna, escalável e desacoplada, utilizando Next.js no frontend e Parse Server na nuvem.</p>
+          </div>
+        </div>
+
+        <div class="stack-cards-grid">
+          <!-- Card 1: Frontend & UI -->
+          <div class="stack-card">
+            <div class="stack-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <div class="stack-card-title">Frontend & Estilização</div>
+            <div class="stack-card-body">
+              Next.js 14+ com App Router para roteamento moderno, componentes de servidor/cliente e Tailwind CSS ou CSS
+              Modules para design responsivo.
+            </div>
+            <div class="pill-list">
+              <span class="pill-item">Next.js (App Router)</span>
+              <span class="pill-item">Tailwind CSS</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Backend & Banco -->
+          <div class="stack-card">
+            <div class="stack-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <div class="stack-card-title">Backend & Persistência</div>
+            <div class="stack-card-body">
+              Back4App (Parse Platform) como BaaS gerenciado com ACL (segurança e permissões por objeto) e integração
+              via Parse JavaScript SDK.
+            </div>
+            <div class="pill-list">
+              <span class="pill-item">Back4App (Parse)</span>
+              <span class="pill-item">ACL Security</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Estado & Queries -->
+          <div class="stack-card">
+            <div class="stack-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                </path>
+              </svg>
+            </div>
+            <div class="stack-card-title">Estado Global & Cache</div>
+            <div class="stack-card-body">
+              TanStack Query para controle de cache, mutações e revalidação de dados. Zustand para estado de sessão e
+              carrinho/favoritos persistentes.
+            </div>
+            <div class="pill-list">
+              <span class="pill-item">TanStack Query</span>
+              <span class="pill-item">useAuthStore</span>
+              <span class="pill-item">useFavoritesStore</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Entrega & Deploy -->
+          <div class="stack-card">
+            <div class="stack-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+              </svg>
+            </div>
+            <div class="stack-card-title">Infra, CI/CD & Evidências</div>
+            <div class="stack-card-body">
+              Hospedagem automatizada na Vercel com variáveis seguras, repositório GitHub com branch protection e vídeo
+              demonstrativo de até 3 minutos no YouTube.
+            </div>
+            <div class="pill-list">
+              <span class="pill-item">Vercel</span>
+              <span class="pill-item">GitHub</span>
+              <span class="pill-item">YouTube</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Matriz de Integrantes, Entidades e Responsabilidades
+         ========================================================================== -->
+    <section id="equipe" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h3>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              Equipe & Distribuição de Entidades
+            </h3>
+            <p>1 integrante responsável por 1 entidade e tela principal, com exatamente 15 pontos de esforço cada.</p>
+          </div>
+        </div>
+
+        <div class="team-grid">
+          <!-- Cayo Nunes -->
+          <div class="member-card">
+            <div class="member-top">
+              <div class="member-avatar"
+                style="background: var(--membro-cayo-bg); color: var(--membro-cayo-text); border: 2px solid var(--membro-cayo-border);">
+                CN
+              </div>
+              <div class="member-info">
+                <h4>Cayo Nunes</h4>
+                <div class="member-role">Banco + Front</div>
+              </div>
+            </div>
+
+            <div class="member-details">
+              <div class="detail-row">
+                <span class="detail-label">Entidade:</span>
+                <span class="detail-val">Categorias (exibição)</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Tela:</span>
+                <span class="detail-val">Home com categorias</span>
+              </div>
+              <div class="fields-box">
+                <strong>Campos sugeridos:</strong>
+                nome, descrição, imagem
+              </div>
+            </div>
+
+            <div class="member-points">
+              <div class="points-badge">15 Pontos</div>
+              <div class="points-bar-bg">
+                <div class="points-bar-fill"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fernando Erivan -->
+          <div class="member-card">
+            <div class="member-top">
+              <div class="member-avatar"
+                style="background: var(--membro-fernando-bg); color: var(--membro-fernando-text); border: 2px solid var(--membro-fernando-border);">
+                FE
+              </div>
+              <div class="member-info">
+                <h4>Fernando Erivan</h4>
+                <div class="member-role">API + Front</div>
+              </div>
+            </div>
+
+            <div class="member-details">
+              <div class="detail-row">
+                <span class="detail-label">Entidade:</span>
+                <span class="detail-val">Produtos (CRUD completo)</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Tela:</span>
+                <span class="detail-val">Gestão de Produtos</span>
+              </div>
+              <div class="fields-box">
+                <strong>Campos sugeridos:</strong>
+                nome, descrição, preço, imagem, categoria (relação)
+              </div>
+            </div>
+
+            <div class="member-points">
+              <div class="points-badge">15 Pontos</div>
+              <div class="points-bar-bg">
+                <div class="points-bar-fill"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- João Vitor -->
+          <div class="member-card">
+            <div class="member-top">
+              <div class="member-avatar"
+                style="background: var(--membro-joao-bg); color: var(--membro-joao-text); border: 2px solid var(--membro-joao-border);">
+                JV
+              </div>
+              <div class="member-info">
+                <h4>João Vitor</h4>
+                <div class="member-role">API + Front</div>
+              </div>
+            </div>
+
+            <div class="member-details">
+              <div class="detail-row">
+                <span class="detail-label">Entidade:</span>
+                <span class="detail-val">Reservas (CRUD completo)</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Tela:</span>
+                <span class="detail-val">Reservas de mesa</span>
+              </div>
+              <div class="fields-box">
+                <strong>Campos sugeridos:</strong>
+                nome cliente, data, horário, nº pessoas, observação
+              </div>
+            </div>
+
+            <div class="member-points">
+              <div class="points-badge">15 Pontos</div>
+              <div class="points-bar-bg">
+                <div class="points-bar-fill"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Suedson Fernando -->
+          <div class="member-card">
+            <div class="member-top">
+              <div class="member-avatar"
+                style="background: var(--membro-suedson-bg); color: var(--membro-suedson-text); border: 2px solid var(--membro-suedson-border);">
+                SF
+              </div>
+              <div class="member-info">
+                <h4>Suedson Fernando</h4>
+                <div class="member-role">API + Front</div>
+              </div>
+            </div>
+
+            <div class="member-details">
+              <div class="detail-row">
+                <span class="detail-label">Entidade:</span>
+                <span class="detail-val">Unidades + Autenticação</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Tela:</span>
+                <span class="detail-val">Login/Cadastro, Unidades</span>
+              </div>
+              <div class="fields-box">
+                <strong>Campos sugeridos:</strong>
+                nome, endereço, horário, telefone
+              </div>
+            </div>
+
+            <div class="member-points">
+              <div class="points-badge">15 Pontos</div>
+              <div class="points-bar-bg">
+                <div class="points-bar-fill"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kaio Gabriel -->
+          <div class="member-card">
+            <div class="member-top">
+              <div class="member-avatar"
+                style="background: var(--membro-kaio-bg); color: var(--membro-kaio-text); border: 2px solid var(--membro-kaio-border);">
+                KG
+              </div>
+              <div class="member-info">
+                <h4>Kaio Gabriel</h4>
+                <div class="member-role">API + Front</div>
+              </div>
+            </div>
+
+            <div class="member-details">
+              <div class="detail-row">
+                <span class="detail-label">Entidade:</span>
+                <span class="detail-val">Avaliações (exibição)</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Tela:</span>
+                <span class="detail-val">Avaliações & Estrelas</span>
+              </div>
+              <div class="fields-box">
+                <strong>Campos sugeridos:</strong>
+                autor, nota (1–5), comentário
+              </div>
+            </div>
+
+            <div class="member-points">
+              <div class="points-badge">15 Pontos</div>
+              <div class="points-bar-bg">
+                <div class="points-bar-fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         QUADRO SCRUM / KANBAN DAS SPRINTS
+         ========================================================================== -->
+    <section id="kanban" class="kanban-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h3>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="9" y1="3" x2="9" y2="21"></line>
+                <line x1="15" y1="3" x2="15" y2="21"></line>
+              </svg>
+              Quadro Kanban de Atividades por Sprint
+            </h3>
+            <p>Visualização rápida e coesa de todas as tarefas planejadas da Sprint 0 à Sprint 3 com identificação
+              visual dos responsáveis.</p>
+          </div>
+        </div>
+
+        <!-- Barra de Legendas & Dificuldade -->
+        <div class="kanban-controls">
+          <div class="difficulty-legend">
+            <span>Escala de Esforço:</span>
+            <span class="diff-pill facil">⭐ Fácil (1 ponto)</span>
+            <span class="diff-pill medio">⭐⭐ Médio (2 pontos)</span>
+            <span class="diff-pill dificil">⭐⭐⭐ Difícil (3 pontos)</span>
+          </div>
+
+          <div style="font-size: 0.8125rem; color: var(--text-muted); font-weight: 600;">
+            Cada integrante = exatamente 15 pontos
+          </div>
+        </div>
+
+        <!-- Quadro Kanban em 4 Colunas de Sprints -->
+        <div class="kanban-board">
+
+          <!-- COLUNA 1: SPRINT 0 -->
+          <div class="kanban-column">
+            <div class="column-header">
+              <div class="column-title-row">
+                <div class="column-title">
+                  <span>Sprint 0</span>
+                </div>
+                <span class="column-badge">5 Tarefas</span>
+              </div>
+              <div class="column-dates">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>18/11 a 19/11 · Setup & Base</span>
+              </div>
+              <div class="column-summary">
+                <span>Alinhamento Inicial</span>
+                <span>7 pts totais</span>
+              </div>
+            </div>
+
+            <div class="cards-container">
+              <!-- T01 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T01</span>
+                  <span class="task-diff d1">⭐ 1 pt</span>
+                </div>
+                <div class="task-title">
+                  Criar repositório, README com todos os nomes, convidar a equipe e definir padrão de branches
+                  (<code>feature/nome-tarefa</code>).
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-kaio">
+                    <span class="avatar-mini">KG</span>
+                    <span>Kaio</span>
+                  </div>
+                  <span class="task-tag">Git / Setup</span>
+                </div>
+              </div>
+
+              <!-- T02 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T02</span>
+                  <span class="task-diff d2">⭐⭐ 2 pts</span>
+                </div>
+                <div class="task-title">
+                  Criar projeto Next.js + Tailwind + TanStack Query + Zustand e estruturação padrão de pastas.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-kaio">
+                    <span class="avatar-mini">KG</span>
+                    <span>Kaio</span>
+                  </div>
+                  <span class="task-tag">Frontend Core</span>
+                </div>
+              </div>
+
+              <!-- T03 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T03</span>
+                  <span class="task-diff d1">⭐ 1 pt</span>
+                </div>
+                <div class="task-title">
+                  Criar app no Back4App e compartilhar as chaves seguras (com <code>.env.example</code> no repositório).
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-cayo">
+                    <span class="avatar-mini">CN</span>
+                    <span>Cayo</span>
+                  </div>
+                  <span class="task-tag">Back4App</span>
+                </div>
+              </div>
+
+              <!-- T04 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T04</span>
+                  <span class="task-diff d2">⭐⭐ 2 pts</span>
+                </div>
+                <div class="task-title">
+                  Identidade visual: paleta de cores (marrom café, creme, verde), fontes e tokens de CSS.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-suedson">
+                    <span class="avatar-mini">SF</span>
+                    <span>Suedson</span>
+                  </div>
+                  <span class="task-tag">Design System</span>
+                </div>
+              </div>
+
+              <!-- T05 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T05</span>
+                  <span class="task-diff d1">⭐ 1 pt</span>
+                </div>
+                <div class="task-title">
+                  Definir os campos da própria entidade (contrato de dados entre front e banco).
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-todos">
+                    <span class="avatar-mini">👥</span>
+                    <span>Todos</span>
+                  </div>
+                  <span class="task-tag">Contrato API</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUNA 2: SPRINT 1 -->
+          <div class="kanban-column">
+            <div class="column-header">
+              <div class="column-title-row">
+                <div class="column-title">
+                  <span>Sprint 1</span>
+                </div>
+                <span class="column-badge">11 Tarefas</span>
+              </div>
+              <div class="column-dates">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>20/11 a 22/11 · Fundação</span>
+              </div>
+              <div class="column-summary">
+                <span>Back-end & Hooks</span>
+                <span>23 pts totais</span>
+              </div>
+            </div>
+
+            <div class="cards-container">
+              <!-- T06 -->
+              <div class="kanban-card" style="border-left: 3px solid var(--accent-rust);">
+                <div class="card-top">
+                  <span class="task-id">T06</span>
+                  <span class="task-diff d3">⭐⭐⭐ 3 pts</span>
+                </div>
+                <div class="task-title">
+                  <strong>Dependência Crítica:</strong> Criar as classes no Back4App, relações entre tabelas e
+                  permissões (ACL).
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-cayo">
+                    <span class="avatar-mini">CN</span>
+                    <span>Cayo</span>
+                  </div>
+                  <span class="task-tag" style="color: var(--accent-rust);">Até 21/11</span>
+                </div>
+              </div>
+
+              <!-- T07 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T07</span>
+                  <span class="task-diff d2">⭐⭐ 2 pts</span>
+                </div>
+                <div class="task-title">
+                  Configurar serviço de e-mail de recuperação de senha no painel Back4App.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-cayo">
+                    <span class="avatar-mini">CN</span>
+                    <span>Cayo</span>
+                  </div>
+                  <span class="task-tag">Auth Config</span>
+                </div>
+              </div>
+
+              <!-- T08 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T08</span>
+                  <span class="task-diff d1">⭐ 1 pt</span>
+                </div>
+                <div class="task-title">
+                  Cadastrar no banco pelo menos 2 objetos válidos da própria entidade.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-todos">
+                    <span class="avatar-mini">👥</span>
+                    <span>Todos</span>
+                  </div>
+                  <span class="task-tag">Seed Inicial</span>
+                </div>
+              </div>
+
+              <!-- T09 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T09</span>
+                  <span class="task-diff d2">⭐⭐ 2 pts</span>
+                </div>
+                <div class="task-title">
+                  Cliente base da API (<code>lib/parse</code>) e configuração do <code>QueryClientProvider</code>.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-fernando">
+                    <span class="avatar-mini">FE</span>
+                    <span>Fernando</span>
+                  </div>
+                  <span class="task-tag">API Client</span>
+                </div>
+              </div>
+
+              <!-- T10 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T10</span>
+                  <span class="task-diff d3">⭐⭐⭐ 3 pts</span>
+                </div>
+                <div class="task-title">
+                  Hooks de Produtos: listar, buscar, criar, editar e excluir (CRUD completo TanStack).
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-fernando">
+                    <span class="avatar-mini">FE</span>
+                    <span>Fernando</span>
+                  </div>
+                  <span class="task-tag">Hooks CRUD</span>
+                </div>
+              </div>
+
+              <!-- T11 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T11</span>
+                  <span class="task-diff d3">⭐⭐⭐ 3 pts</span>
+                </div>
+                <div class="task-title">
+                  Hooks de Reservas: listar, buscar, criar, editar e excluir mesa.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-joao">
+                    <span class="avatar-mini">JV</span>
+                    <span>João</span>
+                  </div>
+                  <span class="task-tag">Hooks CRUD</span>
+                </div>
+              </div>
+
+              <!-- T12 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T12</span>
+                  <span class="task-diff d2">⭐⭐ 2 pts</span>
+                </div>
+                <div class="task-title">
+                  Componentes reutilizáveis UI: Button, Input, Modal e Card.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-joao">
+                    <span class="avatar-mini">JV</span>
+                    <span>João</span>
+                  </div>
+                  <span class="task-tag">Design System</span>
+                </div>
+              </div>
+
+              <!-- T13 -->
+              <div class="kanban-card" style="border-left: 3px solid var(--accent-amber);">
+                <div class="card-top">
+                  <span class="task-id">T13</span>
+                  <span class="task-diff d3">⭐⭐⭐ 3 pts</span>
+                </div>
+                <div class="task-title">
+                  <strong>Crítico:</strong> API de autenticação (login, logout, cadastro, reset) +
+                  <code>useAuthStore</code>.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-suedson">
+                    <span class="avatar-mini">SF</span>
+                    <span>Suedson</span>
+                  </div>
+                  <span class="task-tag">Auth / Zustand</span>
+                </div>
+              </div>
+
+              <!-- T14 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T14</span>
+                  <span class="task-diff d1">⭐ 1 pt</span>
+                </div>
+                <div class="task-title">
+                  Hook de listagem de Unidades/Lojas da cafeteria.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-suedson">
+                    <span class="avatar-mini">SF</span>
+                    <span>Suedson</span>
+                  </div>
+                  <span class="task-tag">TanStack Query</span>
+                </div>
+              </div>
+
+              <!-- T15 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T15</span>
+                  <span class="task-diff d1">⭐ 1 pt</span>
+                </div>
+                <div class="task-title">
+                  Hook de listagem de Avaliações de clientes.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-kaio">
+                    <span class="avatar-mini">KG</span>
+                    <span>Kaio</span>
+                  </div>
+                  <span class="task-tag">TanStack Query</span>
+                </div>
+              </div>
+
+              <!-- T16 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T16</span>
+                  <span class="task-diff d2">⭐⭐ 2 pts</span>
+                </div>
+                <div class="task-title">
+                  Layout base da aplicação: Navbar, Footer e lógica de proteção de rotas privadas.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-kaio">
+                    <span class="avatar-mini">KG</span>
+                    <span>Kaio</span>
+                  </div>
+                  <span class="task-tag">Layout & Rotas</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUNA 3: SPRINT 2 -->
+          <div class="kanban-column">
+            <div class="column-header">
+              <div class="column-title-row">
+                <div class="column-title">
+                  <span>Sprint 2</span>
+                </div>
+                <span class="column-badge">8 Tarefas</span>
+              </div>
+              <div class="column-dates">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>23/11 a 26/11 · Funcionalidades</span>
+              </div>
+              <div class="column-summary">
+                <span>Construção de Telas</span>
+                <span>16 pts totais</span>
+              </div>
+            </div>
+
+            <div class="cards-container">
+              <!-- T17 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T17</span>
+                  <span class="task-diff d2">⭐⭐ 2 pts</span>
+                </div>
+                <div class="task-title">
+                  Home: seção Hero + listagem visual de Categorias com filtros.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-cayo">
+                    <span class="avatar-mini">CN</span>
+                    <span>Cayo</span>
+                  </div>
+                  <span class="task-tag">Tela Principal</span>
+                </div>
+              </div>
+
+              <!-- T18 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T18</span>
+                  <span class="task-diff d3">⭐⭐⭐ 3 pts</span>
+                </div>
+                <div class="task-title">
+                  Tela de Produtos: tabela/cards, formulário, edição e exclusão segura com modal de confirmação.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-fernando">
+                    <span class="avatar-mini">FE</span>
+                    <span>Fernando</span>
+                  </div>
+                  <span class="task-tag">CRUD Produtos</span>
+                </div>
+              </div>
+
+              <!-- T19 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T19</span>
+                  <span class="task-diff d3">⭐⭐⭐ 3 pts</span>
+                </div>
+                <div class="task-title">
+                  Tela de Reservas: listagem, formulário de agendamento, edição e cancelamento.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-joao">
+                    <span class="avatar-mini">JV</span>
+                    <span>João</span>
+                  </div>
+                  <span class="task-tag">CRUD Reservas</span>
+                </div>
+              </div>
+
+              <!-- T20 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T20</span>
+                  <span class="task-diff d2">⭐⭐ 2 pts</span>
+                </div>
+                <div class="task-title">
+                  Telas de Autenticação: Login, Cadastro de novos usuários e fluxo de Logout.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-suedson">
+                    <span class="avatar-mini">SF</span>
+                    <span>Suedson</span>
+                  </div>
+                  <span class="task-tag">Auth UI</span>
+                </div>
+              </div>
+
+              <!-- T21 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T21</span>
+                  <span class="task-diff d1">⭐ 1 pt</span>
+                </div>
+                <div class="task-title">
+                  Tela “Esqueci minha senha” com disparo de e-mail e validação.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-suedson">
+                    <span class="avatar-mini">SF</span>
+                    <span>Suedson</span>
+                  </div>
+                  <span class="task-tag">Auth UI</span>
+                </div>
+              </div>
+
+              <!-- T22 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T22</span>
+                  <span class="task-diff d1">⭐ 1 pt</span>
+                </div>
+                <div class="task-title">
+                  Tela de Unidades da cafeteria (endereços, horários e contato).
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-suedson">
+                    <span class="avatar-mini">SF</span>
+                    <span>Suedson</span>
+                  </div>
+                  <span class="task-tag">Visualização</span>
+                </div>
+              </div>
+
+              <!-- T23 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T23</span>
+                  <span class="task-diff d2">⭐⭐ 2 pts</span>
+                </div>
+                <div class="task-title">
+                  Tela de Avaliações com cards elegantes e classificação por estrelas (1 a 5).
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-kaio">
+                    <span class="avatar-mini">KG</span>
+                    <span>Kaio</span>
+                  </div>
+                  <span class="task-tag">Visualização</span>
+                </div>
+              </div>
+
+              <!-- T24 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T24</span>
+                  <span class="task-diff d2">⭐⭐ 2 pts</span>
+                </div>
+                <div class="task-title">
+                  Store de Favoritos (<code>useFavoritesStore</code> via Zustand com persistência) e botão ❤️ interativo
+                  nos produtos.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-kaio">
+                    <span class="avatar-mini">KG</span>
+                    <span>Kaio</span>
+                  </div>
+                  <span class="task-tag">Estado Global</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUNA 4: SPRINT 3 -->
+          <div class="kanban-column">
+            <div class="column-header">
+              <div class="column-title-row">
+                <div class="column-title">
+                  <span>Sprint 3</span>
+                </div>
+                <span class="column-badge">6 Tarefas</span>
+              </div>
+              <div class="column-dates">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>27/11 a 29/11 · Finalização</span>
+              </div>
+              <div class="column-summary">
+                <span>Deploy & Evidências</span>
+                <span>8 pts totais</span>
+              </div>
+            </div>
+
+            <div class="cards-container">
+              <!-- T26 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T26</span>
+                  <span class="task-diff d2">⭐⭐ 2 pts</span>
+                </div>
+                <div class="task-title">
+                  Deploy em produção no Vercel e configuração das variáveis de ambiente Back4App.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-cayo">
+                    <span class="avatar-mini">CN</span>
+                    <span>Cayo</span>
+                  </div>
+                  <span class="task-tag">DevOps</span>
+                </div>
+              </div>
+
+              <!-- T27 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T27</span>
+                  <span class="task-diff d1">⭐ 1 pt</span>
+                </div>
+                <div class="task-title">
+                  Revisão minuciosa de CSS, responsividade mobile/tablet e polimento visual de cada tela.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-todos">
+                    <span class="avatar-mini">👥</span>
+                    <span>Todos</span>
+                  </div>
+                  <span class="task-tag">Polimento UI</span>
+                </div>
+              </div>
+
+              <!-- T28 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T28</span>
+                  <span class="task-diff d2">⭐⭐ 2 pts</span>
+                </div>
+                <div class="task-title">
+                  Roteiro, gravação de vídeo (até 3 min com áudio, mostrando CRUD refletido no Back4App) e upload no
+                  YouTube.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-fernando">
+                    <span class="avatar-mini">FE</span>
+                    <span>Fernando</span>
+                  </div>
+                  <span class="task-tag">Vídeo Demo</span>
+                </div>
+              </div>
+
+              <!-- T29 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T29</span>
+                  <span class="task-diff d2">⭐⭐ 2 pts</span>
+                </div>
+                <div class="task-title">
+                  Montar o PDF oficial da apresentação (documentando requisitos atendidos e pendências).
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-joao">
+                    <span class="avatar-mini">JV</span>
+                    <span>João</span>
+                  </div>
+                  <span class="task-tag">Slide & Docs</span>
+                </div>
+              </div>
+
+              <!-- T30 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T30</span>
+                  <span class="task-diff d1">⭐ 1 pt</span>
+                </div>
+                <div class="task-title">
+                  Preenchimento individual do respectivo slide: “O que eu implementei no projeto”.
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-todos">
+                    <span class="avatar-mini">👥</span>
+                    <span>Todos</span>
+                  </div>
+                  <span class="task-tag">Apresentação</span>
+                </div>
+              </div>
+
+              <!-- T31 -->
+              <div class="kanban-card">
+                <div class="card-top">
+                  <span class="task-id">T31</span>
+                  <span class="task-diff d1">⭐ 1 pt</span>
+                </div>
+                <div class="task-title">
+                  Ensaio geral cronometrado da apresentação (todos os membros falam sua parte).
+                </div>
+                <div class="card-footer">
+                  <div class="resp-badge resp-todos">
+                    <span class="avatar-mini">👥</span>
+                    <span>Todos</span>
+                  </div>
+                  <span class="task-tag">Alinhamento</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Dependências Críticas & Regras de Convivência
+         ========================================================================== -->
+    <section id="dependencias" class="section">
+      <div class="container">
+        <div class="two-col-grid">
+
+          <!-- Painel 1: Dependências Críticas -->
+          <div class="info-panel">
+            <div class="info-panel-header">
+              <div class="info-panel-icon warning">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </div>
+              <div class="info-panel-title">
+                <h4>6. Dependências Críticas</h4>
+                <span>Bloqueios técnicos que exigem entrega prioritária</span>
+              </div>
+            </div>
+
+            <div class="dependency-chain">
+              <!-- Dep 1 -->
+              <div class="dep-item">
+                <div class="dep-header">
+                  <span>T06: Classes e ACLs no Back4App</span>
+                  <span class="dep-tag" style="background: #FDF0ED; color: var(--accent-rust);">Até 21/11</span>
+                </div>
+                <div class="dep-text">
+                  <strong>Responsável: Cayo.</strong> Esta tarefa <strong>destrava toda a equipe</strong> para
+                  desenvolvimento dos hooks e testes de integração com o banco.
+                </div>
+              </div>
+
+              <!-- Dep 2 -->
+              <div class="dep-item yellow">
+                <div class="dep-header">
+                  <span>T13: Autenticação + useAuthStore</span>
+                  <span class="dep-tag" style="background: #FEF8EC; color: var(--accent-amber);">Prioritário</span>
+                </div>
+                <div class="dep-text">
+                  <strong>Responsável: Suedson.</strong> Destrava a proteção de rotas privadas e o fluxo de operações
+                  CRUD que exigem usuário autenticado.
+                </div>
+              </div>
+
+              <!-- Dep 3 -->
+              <div class="dep-item blue">
+                <div class="dep-header">
+                  <span>Integração de Categorias em Produtos</span>
+                  <span class="dep-tag" style="background: #EAF0F6; color: #284E75);">Relação</span>
+                </div>
+                <div class="dep-text">
+                  <strong>Fernando depende de Cayo:</strong> O select de categoria no formulário de criação/edição de
+                  Produto depende da entidade Categorias cadastrada e estruturada.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Painel 2: Regras de Convivência -->
+          <div id="regras" class="info-panel">
+            <div class="info-panel-header">
+              <div class="info-panel-icon rules">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <polyline points="16 11 18 13 22 9"></polyline>
+                </svg>
+              </div>
+              <div class="info-panel-title">
+                <h4>5. Regras de Convivência</h4>
+                <span>Acordos de trabalho em equipe para evitar penalidades</span>
+              </div>
+            </div>
+
+            <div class="rules-list">
+              <!-- Regra 1 -->
+              <div class="rule-card">
+                <div class="rule-number">1</div>
+                <div class="rule-content">
+                  <strong>Commits Frequentes e Individuais</strong>
+                  <p>Cada integrante commita o próprio trabalho em commits pequenos e frequentes, comprovando a
+                    participação ativa no repositório.</p>
+                </div>
+              </div>
+
+              <!-- Regra 2 -->
+              <div class="rule-card">
+                <div class="rule-number">2</div>
+                <div class="rule-content">
+                  <strong>Branches e Pull Requests Cruzados</strong>
+                  <p>Uma branch por tarefa (<code>feature/nome-tarefa</code>) com PR revisado por outro colega da equipe
+                    que não esteja com tarefa aberta.</p>
+                </div>
+              </div>
+
+              <!-- Regra 3 -->
+              <div class="rule-card">
+                <div class="rule-number">3</div>
+                <div class="rule-content">
+                  <strong>Daily Rápida de 10 minutos</strong>
+                  <p>Comunicação diária no grupo respondendo 3 perguntas: <em>(1) O que fiz</em>, <em>(2) O que vou
+                      fazer</em> e <em>(3) Se estou travado</em>.</p>
+                </div>
+              </div>
+
+              <!-- Regra 4 -->
+              <div class="rule-card">
+                <div class="rule-number">4</div>
+                <div class="rule-content">
+                  <strong>Prazo Interno & Ajuda Mútua</strong>
+                  <p>Se uma tarefa passar 1 dia do prazo estipulado, o time se mobiliza imediatamente para ajudar a
+                    destravar sem atrasar as entregas.</p>
+                </div>
+              </div>
+
+              <!-- Regra 5 -->
+              <div class="rule-card">
+                <div class="rule-number">5</div>
+                <div class="rule-content">
+                  <strong>Definição de Pronto (DoD)</strong>
+                  <p>Funciona no Vercel, código mergeado no GitHub, CSS revisado e no mínimo 2 objetos válidos
+                    cadastrados no Back4App.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Checklist Final Interativo
+         ========================================================================== -->
+    <section id="checklist" class="section" style="padding-bottom: 60px;">
+      <div class="container">
+        <div class="checklist-card">
+          <div class="section-head" style="margin-bottom: 0;">
+            <div>
+              <h3>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m9 11 3 3L22 4"></path>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                </svg>
+                7. Checklist Final de Entrega
+              </h3>
+              <p>Validação final dos 10 critérios obrigatórios para garantir aprovação sem ressalvas.</p>
+            </div>
+            <div class="tag-badge primary" style="font-size: 0.8125rem;">
+              Total: 10 Verificações
+            </div>
+          </div>
+
+          <div class="checklist-grid">
+            <!-- Item 1 -->
+            <label class="check-item">
+              <input type="checkbox">
+              <span class="check-label">Login, logout e esqueci minha senha funcionando perfeitamente</span>
+            </label>
+
+            <!-- Item 2 -->
+            <label class="check-item">
+              <input type="checkbox">
+              <span class="check-label">CRUD completo de Produtos e Reservas de mesas</span>
+            </label>
+
+            <!-- Item 3 -->
+            <label class="check-item">
+              <input type="checkbox">
+              <span class="check-label">Exibição limpa de Categorias, Unidades e Avaliações</span>
+            </label>
+
+            <!-- Item 4 -->
+            <label class="check-item">
+              <input type="checkbox">
+              <span class="check-label">TanStack Query e Zustand (stores globais) ativamente em uso</span>
+            </label>
+
+            <!-- Item 5 -->
+            <label class="check-item">
+              <input type="checkbox">
+              <span class="check-label">1 tela por integrante, com navegação fluida via Next Router</span>
+            </label>
+
+            <!-- Item 6 -->
+            <label class="check-item">
+              <input type="checkbox">
+              <span class="check-label">Mínimo de 2 objetos cadastrados por entidade no Back4App</span>
+            </label>
+
+            <!-- Item 7 -->
+            <label class="check-item">
+              <input type="checkbox">
+              <span class="check-label">Link do GitHub (README com os nomes) e link público do Vercel</span>
+            </label>
+
+            <!-- Item 8 -->
+            <label class="check-item">
+              <input type="checkbox">
+              <span class="check-label">Vídeo no YouTube (até 3 min, com áudio, mostrando o CRUD no Back4App)</span>
+            </label>
+
+            <!-- Item 9 -->
+            <label class="check-item">
+              <input type="checkbox">
+              <span class="check-label">PDF com requisitos feitos e não feitos e o que cada integrante
+                implementou</span>
+            </label>
+
+            <!-- Item 10 -->
+            <label class="check-item">
+              <input type="checkbox">
+              <span class="check-label">TODOS os integrantes entregam pelo Teams e TODOS apresentam</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       Rodapé Elegante
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Grão & Prosa Café</strong> — Planejamento de Projeto Ágil (Scrum & Kanban)
+      </div>
+      <div class="footer-links">
+        <a href="#visao-geral">Início</a>
+        <a href="#equipe">Equipe</a>
+        <a href="#kanban">Sprints</a>
+        <a href="#dependencias">Dependências</a>
+        <a href="#checklist">Checklist</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
