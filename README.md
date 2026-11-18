@@ -1,4 +1,4 @@
-# Grão & Prosa Café — Gestão de Projeto Ágil (Scrum & Kanban)
+# Cafeteria — Gestão de Projeto Ágil (Scrum & Kanban)
 
 Plano de Projeto e distribuição de atividades para o desenvolvimento da Cafeteria (**Next.js + Back4App**).
 

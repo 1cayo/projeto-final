@@ -1,4 +1,4 @@
-# Configuração de Deploy Netlify - Grão & Prosa Café
+# Configuração de Deploy Netlify - Cafeteria
 [build]
   publish = "."
 
@@ -15,3 +15,4 @@
   from = "/*"
   to = "/index.html"
   status = 200
+

@@ -1,10 +1,10 @@
 /**
- * Grão & Prosa Café - Dashboard de Acompanhamento e Sincronização Kanban
+ * Cafeteria - Dashboard de Acompanhamento e Sincronização Kanban
  * Gerencia o estado das tarefas, cálculo de métricas e atualização reativa do dashboard.
  */
 
 // Chave para armazenamento no localStorage
-const STORAGE_KEY = 'grao_prosa_kanban_state_v1';
+const STORAGE_KEY = 'cafeteria_kanban_state_v1';
 
 // Mapeamento das 5 tarefas coletivas de "Todos" (onde cada integrante ganha 1 pt)
 const TAREFAS_TODOS = ['T05', 'T08', 'T27', 'T30', 'T31'];
@@ -113,7 +113,7 @@ function salvarEstado() {
  */
 function carregarEstado() {
   try {
-    const data = localStorage.getItem(STORAGE_KEY);
+    const data = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('grao_prosa_kanban_state_v1');
     return data ? JSON.parse(data) : {};
   } catch (e) {
     return {};
@@ -254,3 +254,4 @@ function atualizarDashboard() {
     }
   }
 }
+
