@@ -135,7 +135,7 @@
             </div>
 
             <!-- Grid de Acompanhamento por Sprint -->
-            <div class="sprints-progress-grid">
+            <div id="sprints-progress-grid" class="sprints-progress-grid">
               <!-- Sprint 0 -->
               <div class="sprint-prog-card">
                 <div class="sprint-prog-head">
@@ -410,7 +410,7 @@
           </div>
         </div>
 
-        <div class="team-grid">
+        <div id="team-cards-container" class="team-grid">
           <!-- Cayo Nunes -->
           <div class="member-card">
             <div class="member-top">
@@ -623,7 +623,7 @@
           </div>
         </div>
 
-        <!-- Barra de Legendas & Dificuldade -->
+        <!-- Barra de Legendas & Ações Rápidas -->
         <div class="kanban-controls">
           <div class="difficulty-legend">
             <span>Escala de Esforço:</span>
@@ -632,13 +632,25 @@
             <span class="diff-pill dificil">⭐⭐⭐ Difícil (3 pontos)</span>
           </div>
 
-          <div style="font-size: 0.8125rem; color: var(--text-muted); font-weight: 600;">
-            ✓ Marcar tarefa atualiza o dashboard instantaneamente
+          <div class="kanban-actions-group" style="display: flex; align-items: center; gap: 8px;">
+            <button type="button" id="btn-add-sprint" class="btn-dash primary" title="Criar uma nova Sprint no projeto">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              + Nova Sprint
+            </button>
+            <button type="button" id="btn-add-task-global" class="btn-dash" title="Adicionar uma nova tarefa ao projeto">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14"></path>
+              </svg>
+              + Nova Atividade
+            </button>
           </div>
         </div>
 
-        <!-- Quadro Kanban em 4 Colunas de Sprints -->
-        <div class="kanban-board">
+        <!-- Quadro Kanban em Colunas de Sprints Dinâmicas -->
+        <div id="kanban-board" class="kanban-board">
 
           <!-- COLUNA 1: SPRINT 0 -->
           <div class="kanban-column">
@@ -1667,6 +1679,161 @@
       </div>
     </div>
   </footer>
+
+  <!-- ==========================================================================
+       MODAIS DE EDIÇÃO E ADIÇÃO DINÂMICA
+       ========================================================================== -->
+
+  <!-- Modal 1: Editar Integrante da Equipe -->
+  <div id="modal-edit-member" class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          Editar Integrante da Equipe
+        </div>
+        <button type="button" class="modal-close" aria-label="Fechar">&times;</button>
+      </div>
+      <form id="form-edit-member">
+        <div class="modal-body">
+          <input type="hidden" id="member-edit-id">
+          
+          <div class="form-group">
+            <label class="form-label" for="member-edit-nome">Nome do Integrante</label>
+            <input type="text" id="member-edit-nome" class="form-input" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="member-edit-papel">Papel / Função</label>
+            <input type="text" id="member-edit-papel" class="form-input" required placeholder="Ex: API + Front, Banco + Front...">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="member-edit-entidade">Entidade Atribuída</label>
+            <input type="text" id="member-edit-entidade" class="form-input" required placeholder="Ex: Produtos (CRUD completo)">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="member-edit-tela">Tela Principal</label>
+            <input type="text" id="member-edit-tela" class="form-input" required placeholder="Ex: Gestão de Produtos">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="member-edit-campos">Campos Sugeridos (Contrato de Dados)</label>
+            <textarea id="member-edit-campos" class="form-textarea" placeholder="Ex: nome, descrição, preço, imagem..."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-dash btn-modal-cancel">Cancelar</button>
+          <button type="submit" class="btn-dash primary">Salvar Alterações</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 2: Adicionar / Editar Sprint -->
+  <div id="modal-sprint" class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-sprint-title">Adicionar Nova Sprint</div>
+        <button type="button" class="modal-close" aria-label="Fechar">&times;</button>
+      </div>
+      <form id="form-sprint">
+        <div class="modal-body">
+          <input type="hidden" id="sprint-id-field">
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="sprint-nome-field">Nome da Sprint</label>
+              <input type="text" id="sprint-nome-field" class="form-input" required placeholder="Ex: Sprint 4">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="sprint-foco-field">Foco / Objetivo</label>
+              <input type="text" id="sprint-foco-field" class="form-input" required placeholder="Ex: Otimização & Testes">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="sprint-datas-field">Período / Datas</label>
+            <input type="text" id="sprint-datas-field" class="form-input" required placeholder="Ex: 30/11 a 02/12">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="sprint-resumo-field">Resumo do Ciclo</label>
+            <input type="text" id="sprint-resumo-field" class="form-input" placeholder="Ex: Validação final e entrega">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-dash btn-modal-cancel">Cancelar</button>
+          <button type="submit" class="btn-dash primary">Salvar Sprint</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 3: Adicionar / Editar Atividade (Atribuir a quem quiser) -->
+  <div id="modal-task" class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-task-title">Atividade do Projeto</div>
+        <button type="button" class="modal-close" aria-label="Fechar">&times;</button>
+      </div>
+      <form id="form-task">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="task-id-field">ID da Tarefa</label>
+              <input type="text" id="task-id-field" class="form-input" required style="font-family: var(--font-mono); font-weight: 700;">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="task-points-select">Dificuldade / Esforço</label>
+              <select id="task-points-select" class="form-select">
+                <option value="1">⭐ 1 Ponto (Fácil)</option>
+                <option value="2">⭐⭐ 2 Pontos (Médio)</option>
+                <option value="3">⭐⭐⭐ 3 Pontos (Difícil)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="task-titulo-field">Descrição da Atividade</label>
+            <textarea id="task-titulo-field" class="form-textarea" required placeholder="Descreva o objetivo e critérios da atividade..."></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="task-sprint-select">Sprint Destino</label>
+              <select id="task-sprint-select" class="form-select" required>
+                <!-- Preenchido dinamicamente via JS -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="task-resp-select">Responsável (Atribuir a quem quiser)</label>
+              <select id="task-resp-select" class="form-select" required>
+                <!-- Preenchido dinamicamente via JS com membros ou Todos -->
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="task-tag-field">Tag / Categoria</label>
+            <input type="text" id="task-tag-field" class="form-input" placeholder="Ex: Frontend, Backend, API, UI, DevOps...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-delete-task" class="btn-danger-outline" style="display: none;">Excluir Atividade</button>
+          <button type="button" class="btn-dash btn-modal-cancel">Cancelar</button>
+          <button type="submit" class="btn-dash primary">Salvar Atividade</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast de Notificação -->
+  <div id="toast-notice" class="toast-notice"></div>
 
   <!-- Script Reativo do Dashboard e Kanban -->
   <script src="app.js"></script>
